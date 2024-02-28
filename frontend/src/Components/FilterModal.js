@@ -156,8 +156,7 @@ const FilterModal = ({ selectedFilters, onFilterChange, onClose }) => {
                             ))}
                         </div>
                     </div>
-                    
-                    // filter button
+
                     <div className="filter-buttons">
                         <button className="clear-button" onClick={handleClearFilters}>
                             Clear

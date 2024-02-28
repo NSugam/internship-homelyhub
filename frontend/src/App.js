@@ -6,11 +6,14 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import PropertyList from './Components/Home/PropertyList';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<Main />}>exact</Route>
+      <Route path='/' element={<Main />} exact >
+      <Route path='/' element={<PropertyList />} exact />
+      </Route>
     )
   )
 

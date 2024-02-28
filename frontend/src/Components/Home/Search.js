@@ -7,7 +7,6 @@ const Search = () => {
     const [keyword, setKeyword] = useState({});
     const [value, setValue] = useState([]);
 
-
     function returnDates(date, dateString) {
         setValue([date[0], date[1]]);
         updateKeyword('dateIn', dateString[0]);
