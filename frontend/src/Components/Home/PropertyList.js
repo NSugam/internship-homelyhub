@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({ image, address, price, name }) => {
     return (
         <figure className='property'>
-            <img src={image} alt="propertyImage" />
+            <img src={image} alt="propertyimg"/>
             <h4>{name}</h4>
             <figcaption>
                 <main className='propertydetails'>
@@ -34,7 +34,7 @@ const PropertyList = () => {
             id: 2,
             image: "/assets/property3.webp",
             name: "House",
-            address: "Kthmandu",
+            address: "Kathmandu",
             price: 3999
         }
     ]

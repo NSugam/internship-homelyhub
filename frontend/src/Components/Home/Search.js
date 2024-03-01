@@ -19,7 +19,6 @@ const Search = () => {
             [field]: value
         }))
     }
-    const name="sugam";
 
     return (
         <>
