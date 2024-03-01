@@ -12,14 +12,13 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<Main />} exact >
-      <Route path='/' element={<PropertyList />} exact />
+        <Route id='home' index element={<PropertyList />} exact />
       </Route>
     )
-  )
-
+  );
   return (
     <div className='app'>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
 
     </div>
   );
