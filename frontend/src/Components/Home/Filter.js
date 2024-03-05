@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FilterModal from '../FilterModal';
+import { useDispatch } from 'react-redux';
+import { getAllProperties } from '../../Store/Property/property-action';
+import { propertyAction } from '../../Store/Property/property-slice';
 
 const Filter = () => {
 
@@ -7,6 +10,12 @@ const Filter = () => {
 
     //State for storing selected filters
     const [selectedFilters, setselectedFilters] = useState({});
+
+    const dispatch = useDispatch();
+    useEffect(()=> {
+        dispatch(propertyAction.updateSearchParams(selectedFilters));
+        dispatch(getAllProperties())
+    },[selectedFilters, dispatch])
 
     //Function to handle opening the modal
     const handleOpenModel = () => {

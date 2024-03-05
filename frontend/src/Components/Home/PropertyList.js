@@ -59,8 +59,23 @@ const PropertyList = () => {
           ))}
         </div>
       )}
+
+      {/* Pagination Control */}
+      <div className="pagination">
+        <button className="previous_btn"
+          onClick={() => setCurrentPage((prev)=>({ page: prev.page - 1 }))}
+          disabled={currentPage.page === 1}>
+            <span className="material-symbols-outlined">arrow_back_ios_new</span>
+        </button>
+
+        <button className="next_btn"
+          onClick={() => setCurrentPage((prev)=>({ page: prev.page + 1 }))}
+          disabled={properties.length < 12  || currentPage.page === lastPage}>
+            <span className="material-symbols-outlined">arrow_forward_ios</span>
+        </button>
+      </div>
     </>
   );
 };
-
+                             
 export default PropertyList;
