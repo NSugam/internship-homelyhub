@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProperties } from "../../Store/Property/property-action";
 import { propertyAction } from "../../Store/Property/property-slice";
+import { Link } from "react-router-dom";
 
-const Card = ({ image, address, price, name }) => {
+const Card = ({ id, image, address, price, name }) => {
   return (
     <figure className="property">
-      <img src={image} alt="Propertyimg" />
+      <Link to={`/propertylist/${id}`}>
+        <img src={image} alt="Propertyimg" />
+      </Link>
+
       <h4>{name}</h4>
       <figcaption>
         <main className="propertydetails">
@@ -63,19 +67,19 @@ const PropertyList = () => {
       {/* Pagination Control */}
       <div className="pagination">
         <button className="previous_btn"
-          onClick={() => setCurrentPage((prev)=>({ page: prev.page - 1 }))}
+          onClick={() => setCurrentPage((prev) => ({ page: prev.page - 1 }))}
           disabled={currentPage.page === 1}>
-            <span className="material-symbols-outlined">arrow_back_ios_new</span>
+          <span className="material-symbols-outlined">arrow_back_ios_new</span>
         </button>
 
         <button className="next_btn"
-          onClick={() => setCurrentPage((prev)=>({ page: prev.page + 1 }))}
-          disabled={properties.length < 12  || currentPage.page === lastPage}>
-            <span className="material-symbols-outlined">arrow_forward_ios</span>
+          onClick={() => setCurrentPage((prev) => ({ page: prev.page + 1 }))}
+          disabled={properties.length < 12 || currentPage.page === lastPage}>
+          <span className="material-symbols-outlined">arrow_forward_ios</span>
         </button>
       </div>
     </>
   );
 };
-                             
+
 export default PropertyList;
