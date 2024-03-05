@@ -25,3 +25,5 @@ const propertyDetailsSlice = createSlice({
 });
 
 export const propertyDetailsAction = propertyDetailsSlice.actions;
+
+export default propertyDetailsSlice;
