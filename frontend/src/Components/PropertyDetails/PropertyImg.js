@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Modal from "./Modal"
 const PropertyImg = ({ images }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,6 +28,7 @@ const PropertyImg = ({ images }) => {
       <span className="material-symbols-outlined houseicon">photo_library</span>
       </button>
     </div>
+    {isModalOpen && <Modal images={images} onClose={handleCloseModal}/>}
 
     </>
   )
