@@ -29,7 +29,7 @@ const PropertyDetails = () => {
                             <span className='material-symbols-outlined'>house</span>
                             <span className='location'>{`${address.area}, ${address.city}, ${address.pincode}, ${address.state}`}</span>
                         </h6>
-                        <PropertyImg images={images} />
+                        <PropertyImg images={images} propertyName={propertyName} />
                         <div className='middle-container row'>
                             <div className='des-and-amenities col-md-8 col-sm-12 col-12'>
                                 <h2 className='property-description-header'>Description</h2>

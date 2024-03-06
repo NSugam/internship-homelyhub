@@ -1,5 +1,5 @@
 /* Modal.css */
-.modal-backdrop {
+/* .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,9 +16,17 @@
   padding: 20px;
   border-radius: 8px;
   position: relative;
-  max-height: 95vh; /* Set a maximum height */
-  overflow-y: auto; /* Enable vertical scrolling if needed */
-  width: 50rem;
+  max-height: 95vh; 
+  overflow-y: auto; 
+  width: 40rem;
+} */
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.945);
+  position: relative;
+  max-height: 95vh; 
+  overflow-x: hidden; 
+  width: 45rem;
 }
 
 .close-button {
