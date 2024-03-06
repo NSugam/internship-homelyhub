@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getPropertyDetails } from '../../Store/PropertyDetails/propertyDetails-action'
 import PropertyImg from './PropertyImg'
 import PropertyAmenities from './PropertyAmenities'
+import BookingForm from './BookingForm'
 
 const PropertyDetails = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const PropertyDetails = () => {
         dispatch(getPropertyDetails(id))
     }, [dispatch, id])
 
-    const { propertyName, address, images, description, maximumGuest, amenities } = propertydetails;
+    const { propertyName, address, images, description, maximumGuest, amenities, price, currentBookings, } = propertydetails;
 
     return (
         <div className='property-container'>
@@ -31,16 +32,22 @@ const PropertyDetails = () => {
                         <PropertyImg images={images} />
                         <div className='middle-container row'>
                             <div className='des-and-amenities col-md-8 col-sm-12 col-12'>
-                                <h2 className='property-description-header'>Description
+                                <h2 className='property-description-header'>Description</h2>
                                     <p className='property-description'>
                                         {description}<br /><br />
                                         Max number of Guests: {maximumGuest}<br/><br/>
                                     </p>
                                     <hr/>
-                                    <PropertyAmenities amenities={amenities}/>
-
-                                </h2>
+                                    <PropertyAmenities amenities={amenities}/><br/><br/>
                             </div>
+                            <BookingForm
+                            propertyId = {id}
+                            price={price}
+                            propertyName={propertyName}
+                            address={address}
+                            maximumGuest={maximumGuest}
+                            currentBookings={currentBookings}
+                            />
                         </div>
                     </>
                 )

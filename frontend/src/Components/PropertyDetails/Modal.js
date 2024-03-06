@@ -10,7 +10,7 @@ const Modal = ({ images, onClose }) => {
         };
     }, []);
 
-    return (
+    return (<>
         <div className="modal-backdrop">
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>
@@ -23,6 +23,7 @@ const Modal = ({ images, onClose }) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
