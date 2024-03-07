@@ -34,8 +34,8 @@ const PropertyDetails = () => {
                             <div className='des-and-amenities col-md-8 col-sm-12 col-12'>
                                 <h2 className='property-description-header'>Description</h2>
                                     <p className='property-description'>
-                                        {description}<br /><br />
-                                        Max number of Guests: {maximumGuest}<br/><br/>
+                                        {description}<br />
+                                        Max number of Guests: {maximumGuest}<br/>
                                     </p>
                                     <hr/>
                                     <PropertyAmenities amenities={amenities}/><br/><br/>

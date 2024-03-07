@@ -4,7 +4,7 @@ const PropertyAmenities = ({ amenities }) => {
   return (
     <>
       <h2 className="property-amenities">What this place offers</h2>
-      <div className="amenities">
+      <div className="amenities justify-content-start">
         {amenities.map((amenity, index) => (
           <p key={index}>
             <span className="material-symbols-outlined">{amenity.icon}</span>
