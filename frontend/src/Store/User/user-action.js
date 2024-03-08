@@ -2,7 +2,6 @@ import axios from 'axios';
 import { userActions } from './user-slice';
 
 // handle user signup
-
 export const getSignup =(user) => async (dispatch) => {
     try {
         dispatch(userActions.getSignupRequest())
@@ -14,4 +13,35 @@ export const getSignup =(user) => async (dispatch) => {
     }
 }
 
+//handle user login
+export const getLogin = (user) => async(dispatch) => {
+    try {
+        dispatch(userActions.getLoginRequest());
+        const { data } = await axios.post("/api/v1/rent/user/login")
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
 
+//get current user information
+export const currentUser = (user) => async(dispatch) => {
+    try {
+        dispatch(userActions.getCurrentUserRequest());
+        const { data } = await axios.get("/api/v1/rent/user/me")
+        dispatch(userActions.getCurrentUser(data.user))
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
+
+// to update user information
+export const updateUser = (updateUser) => async(dispatch) => {
+    try {
+        dispatch(userActions.getUpdateUserRequest());
+        await axios.patch("/api/v1/rent/user/updateMe", updateUser)
+        const { data } = await axios.get("/api/v1/rent/user/me")
+        dispatch(userActions.getCurrentUser(data.user))
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
