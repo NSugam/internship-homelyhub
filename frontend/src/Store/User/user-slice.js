@@ -55,7 +55,13 @@ const userSlice = createSlice({
         getPasswordSuccess(state, action){
             state.success=action.payload
             state.loading=false
+        },
+        clearError(state) {
+            state.errors = null
         }
-        
     }
 })
+
+export const userActions = userSlice.actions;
+
+export default userSlice;
