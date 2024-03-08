@@ -45,3 +45,23 @@ export const updateUser = (updateUser) => async(dispatch) => {
         dispatch(userActions.getError(error.response.data.message))
     }
 }
+
+//to handle forgot password
+export const forgotPassword = (email) => async(dispatch) => {
+    try {
+        await axios.post("/api/v1/rent/user/forgotPassword", { email })
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
+
+//password reset
+export const resetPassword = (repassword, token) => async(dispatch) => {
+    try {
+        await axios.patch(`/api/v1/rent/user/resetPassword/${token}`, repassword)
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
+
+// to handle password update
