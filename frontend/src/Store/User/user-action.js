@@ -65,3 +65,22 @@ export const resetPassword = (repassword, token) => async(dispatch) => {
 }
 
 // to handle password update
+export const updatePassword = (passwords) => async(dispatch) => {
+    try {
+        dispatch(userActions.getPasswordRequest())
+        await axios.patch("/api/v1/rent/user/updateMyPassword", passwords)
+        dispatch(userActions.getPasswordSuccess(true))
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
+
+//handle user logout
+export const Logout = (user) => async(dispatch) => {
+    try {
+        await axios.get("/api/v1/rent/user/logout")
+        dispatch(userActions.getLogout(null));
+    } catch (error) {
+        dispatch(userActions.getError(error.response.data.message))
+    }
+}
