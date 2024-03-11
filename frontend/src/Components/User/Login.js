@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "../../CSS/Login.css";
-import { getLogIn } from "../../Store/User/user-action";
+import { getLogin } from "../../Store/User/user-action";
 import { userActions } from "../../Store/User/user-slice";
 import LoadingSpinner from "../LoadingSpinner";
 
@@ -16,7 +16,7 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(getLogIn({ email, password }));
+    dispatch(getLogin({ email, password }));
   };
 
   useEffect(() => {
