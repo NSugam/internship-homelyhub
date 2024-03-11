@@ -44,8 +44,26 @@ const Header = () => {
           </Link>
         )}
 
-
-
+        {isAuthenticated && user && (
+          <div className='dropdown'>
+            <span className='material-symbols-outlined web_logo dropdown-toggle' href="#" id="dropdownMenuLink"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              {user.avatar.url && (
+                <img src={user.avatar.url} className='user-img' alt="icon" />
+              )}
+              {!user.avatar.url === "" && "account_circle"}
+            </span>
+            <ul className='dropdown-menu' aria-labelledby="dropdownMenuLink">
+              <li>
+                <Link className='dropdown-item' to="/profile"> My Account
+                </Link>
+              </li>
+              <li>
+                <button className='dropdown-item' type="button" onClick={logout}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
     </>
   )
