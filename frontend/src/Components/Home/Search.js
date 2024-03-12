@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { DatePicker, Space } from 'antd';
-
 import { useDispatch } from 'react-redux';
 import { getAllProperties } from '../../Store/Property/property-action';
 import { propertyAction } from '../../Store/Property/property-slice';
@@ -40,21 +39,29 @@ const Search = () => {
 
     return (
         <>
-            <div className='searchbar'>
+            <div className='searchbar pl-2 d-flex align-items-center rounded rounded-pill h-100' style={{width:'90%'}} >
                 <input
-                    className='search'
+                    className='form-control col-sm-4 rounded rounded-pill bg-dark text-light' style={{border: 'transparent'}}
                     id='search_destination'
                     placeholder='Search Destination'
                     type='text'
                     value={keyword.city}
                     onChange={(e) => updateKeyword("city", e.target.value)}
                 />
-                <Space direction='verticle' size={12} className='search'>
+                    <input
+                        className='form-control col-sm-2 rounded rounded-pill bg-dark text-light' style={{border: 'transparent'}}
+                        id='addquest'
+                        placeholder='Add guest'
+                        type='number'
+                        value={keyword.guests}
+                        onChange={(e) => updateKeyword("guests", e.target.value)}
+                    />
+                <Space direction='verticle' size={12}>
                     <RangePicker 
                         value={value}
                         format="YYYY-MM-DD"
                         picker="date"
-                        className="date_picker"
+                        className="date_picker form-control col-12 d-flex rounded rounded-pill fs-2 bg-dark text-light" style={{border: '2px solid grey'}}
                         disabledDate={(current) => { 
                             return current && current.isBefore(Date.now(), "day"); 
                         }}
@@ -62,14 +69,6 @@ const Search = () => {
                     />
                 </Space>
 
-                <input
-                    className='search'
-                    id='addquest'
-                    placeholder='Add guest'
-                    type='number'
-                    value={keyword.guests}
-                    onChange={(e) => updateKeyword("guests", e.target.value)}
-                />
                 <span className="material-symbols-outlined searchicon" onClick={searchHandler}>
                     search
                 </span>

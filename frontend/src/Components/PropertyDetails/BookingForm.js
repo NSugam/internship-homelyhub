@@ -109,7 +109,7 @@ const BookingForm = ({ price, propertyName, address, maximumGuest, propertyId, c
           </div>
         </div>
         <div className="book-place text-center">
-          <button>Book this place &#8377; {paymentData["totalPrice"] || 0}</button>
+          <button className="btn btn-danger">Book this place &#8377; {paymentData["totalPrice"] || 0}</button>
         </div>
       </form>
     </div>

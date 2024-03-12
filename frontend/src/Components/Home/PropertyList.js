@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 
 const Card = ({ id, image, address, price, name }) => {
   return (
-    <figure className="property">
+    <figure className="property w-100">
       <Link to={`/propertylist/${id}`}>
         <img src={image} alt="Propertyimg" />
       </Link>
 
-      <h4>{name}</h4>
+      <p className="card-footer text-light text-center fs-6" style={{ backgroundColor: 'black' }}>{name}</p>
       <figcaption>
         <main className="propertydetails">
           <h5>{name}</h5>
@@ -48,30 +48,33 @@ const PropertyList = () => {
   return (
     <>
       {properties.length === 0 ? (
-        <p className="not_found">"Property not found......"</p>
+        <p className="not_found fs-1 text-danger">"Property not found"</p>
       ) : (
-        <div className="propertylist">
+        <div className="container-fluid row m-auto bg-dark">
           {properties.map((property) => (
-            <Card
-              key={property._id}
-              id={property._id}
-              image={property.images[0].url}
-              name={property.propertyName}
-              address={`${property.address.city}, ${property.address.state}, ${property.address.pincode}`}
-              price={property.price}
-            />
+            <div className="col col-sm-3 col-12 mt-3">
+              <Card
+                key={property._id}
+                id={property._id}
+                image={property.images[0].url}
+                name={property.propertyName}
+                address={`${property.address.city}, ${property.address.state}, ${property.address.pincode}`}
+                price={property.price}
+              />
+            </div>
           ))}
         </div>
       )}
 
       {/* Pagination Control */}
-      <div className="pagination">
+      <div className="bg-dark p-5 d-flex justify-content-around pagination-btn">
         <button className="previous_btn"
           onClick={() => setCurrentPage((prev) => ({ page: prev.page - 1 }))}
           disabled={currentPage.page === 1}>
           <span className="material-symbols-outlined">arrow_back_ios_new</span>
         </button>
-
+        <p className="text-light">Page: {currentPage.page}</p>
+        
         <button className="next_btn"
           onClick={() => setCurrentPage((prev) => ({ page: prev.page + 1 }))}
           disabled={properties.length < 12 || currentPage.page === lastPage}>

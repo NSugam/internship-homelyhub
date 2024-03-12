@@ -148,7 +148,7 @@ input:focus {
 
 .book-place > button {
   width: 90%;
-  background-color: #0e8b53;
+  /* background-color: #0e8b53; */
   color: white;
   border-radius: 10px;
   border: none;
@@ -161,7 +161,8 @@ input:focus {
 .book-place > button:hover {
   transition: 0.2s;
   background-color: rgba(1, 38, 7, 0.177);
-  color: #0e8b53;
+  /* color: #0e8b53; */
+  color: red;
   font-size: 17px;
 }
 

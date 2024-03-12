@@ -26,11 +26,12 @@ const Header = () => {
 
   return (
     <>
-      <nav className="header row sticky-top">
-        <Link to="/">
-          <img src="/assets/logo.png" alt="logo" className="logo" onClick={allproperties} />
+      <nav className="row sticky-top m-auto d-flex justify-content-around align-items-center" style={{backgroundColor: 'black', width: '100%', height:'90px'}}>
+        <Link to="/" className="nav-link text-danger" style={{fontSize: '20px'}}>
+          {/* <img src="/assets/logo.png" alt="logo" className="logo" onClick={allproperties} /> */}
+          <strong>BookMyRoom</strong>
         </Link>
-        <div className="search_filter">
+        <div className="search_filter rounded-pill h-50 d-flex align-items-center justify-content-around bg-dark">
           <Search />
           <Filter />
         </div>
@@ -42,7 +43,7 @@ const Header = () => {
         {isAuthenticated && user && (
           <div className="dropdown">
             <span
-              className="material-symbols-outlined web_logo dropdown-toggle"
+              className="material-symbols-outlined web_logo dropdown-toggle "
               href="#"
               role="button"
               id="dropdownMenuLink"

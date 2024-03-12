@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "../CSS/FilterModal.css";
+import "../../CSS/FilterModal.css";
 import "react-input-range/lib/css/index.css";
 import InputRange from "react-input-range";
 
@@ -94,12 +94,16 @@ const FilterModal = ({ selectedFilters, onFilterChange, onClose }) => {
 
     return (
         <div className="modal-backdrop">
-            <div className="modal-content">
-                <h4> Filters </h4>
-                <hr />
-                <button className="close-button" onClick={onClose}>
+            <div className="filter-modal-content p-4 bg-light rounded">
+                <div class="modal-header sticky-top bg-light" style={{ top: '-25px' }}>
+                    <h4> Filters </h4>
+                    <hr />
+                    {/* <button className="close-button" >
                     <span>&times;</span>
-                </button>
+                </button> */}
+                    <button onClick={handleFilterChange} className="btn btn-outline-dark">Apply Filters</button>&nbsp;&nbsp;
+                    <button class="btn btn-close btn-danger" onClick={onClose}>Close</button>
+                </div>
                 <div className="modal-filters-container">
                     <div className="filter-section">
                         <label>Price range:</label>
@@ -157,11 +161,11 @@ const FilterModal = ({ selectedFilters, onFilterChange, onClose }) => {
                         </div>
                     </div>
 
-                    <div className="filter-buttons">
-                        <button className="clear-button" onClick={handleClearFilters}>
-                            Clear
-                        </button>
-                        <button onClick={handleFilterChange}>Apply Filters</button>
+                    <div class="modal-footer">
+                            <button className="btn btn-secondary" onClick={handleClearFilters}>
+                                Clear
+                            </button>
+                            
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import FilterModal from '../FilterModal';
+import FilterModal from './FilterModal';
 import { useDispatch } from 'react-redux';
 import { getAllProperties } from '../../Store/Property/property-action';
 import { propertyAction } from '../../Store/Property/property-slice';
@@ -36,9 +36,9 @@ const Filter = () => {
 
     return (
         <>
-            <span class="material-symbols-outlined" onClick={handleOpenModel}>
+            <a class="material-symbols-outlined text-danger" href="#" onClick={handleOpenModel}>
                 tune
-            </span>
+            </a>
             {isModalOpen && (
                 <FilterModal
                     selectedFilters={selectedFilters}

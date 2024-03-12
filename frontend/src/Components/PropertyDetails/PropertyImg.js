@@ -25,7 +25,7 @@ const PropertyImg = ({ images, propertyName }) => {
     </div>
     <div className='similar-photos-container'>
       <button className='similar-photos' onClick={handleShowAllPhotos}>
-      <span className="material-symbols-outlined houseicon">photo_library</span>
+      <span className="material-symbols-outlined text-danger">photo_library</span>
       </button>
     </div>
     {isModalOpen && <Modal images={images} propertyName={propertyName} onClose={handleCloseModal}/>}
