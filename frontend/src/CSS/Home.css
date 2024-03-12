@@ -294,6 +294,7 @@ footer {
 }
 
 .not_found {
+  font-size: 30px;
   width: 50%;
   height: 50vh;
   display: block;

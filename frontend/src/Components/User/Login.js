@@ -58,7 +58,7 @@ const Login = () => {
                 />
               </div>
               <Link to="/user/forgotpassword" className="float-right mb-4"> Forgot Password </Link>
-              <button id="login_button" type="submit" className="loginbutton btn-block py-3"> LOGIN </button>
+              <button id="login_button" type="submit" className="loginbutton btn-block py-2 btn-danger"> LOGIN </button>
               <Link to="/signup" className="float-right mt-3"> New user? </Link>
             </form>
           </div>
