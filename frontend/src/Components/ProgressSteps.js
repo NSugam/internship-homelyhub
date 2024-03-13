@@ -19,7 +19,7 @@ const ProgressSteps = () => {
   ];
 
   return (
-    <div className="checkout-progress d-flex justify-content-center mt-5 ">
+    <div className="checkout-progress d-flex justify-content-center mt-5">
       {progressButtons.map(({ to, text }, index) => (
         <ProgressButtons key={index} to={to} text={text} />
       ))}

@@ -6,7 +6,6 @@ export const getSignup =(user) => async (dispatch) => {
     try {
         dispatch(userActions.getSignupRequest())
         const { data } = await axios.post("/api/v1/rent/user/signup", user)
-
         dispatch(userActions.getSignupDetails(data.user))
     } catch (error) {
         dispatch(userActions.getError(error.response.data.message))
@@ -17,7 +16,8 @@ export const getSignup =(user) => async (dispatch) => {
 export const getLogin = (user) => async(dispatch) => {
     try {
         dispatch(userActions.getLoginRequest());
-        const { data } = await axios.post("/api/v1/rent/user/login")
+        const { data } = await axios.post("/api/v1/rent/user/login", user)
+        dispatch(userActions.getLoginDetails(data.user))
     } catch (error) {
         dispatch(userActions.getError(error.response.data.message))
     }
@@ -27,7 +27,7 @@ export const getLogin = (user) => async(dispatch) => {
 export const currentUser = (user) => async(dispatch) => {
     try {
         dispatch(userActions.getCurrentUserRequest());
-        const { data } = await axios.get("/api/v1/rent/user/me")
+        const { data } = await axios.get("/api/v1/rent/user/me", user)
         dispatch(userActions.getCurrentUser(data.user))
     } catch (error) {
         dispatch(userActions.getError(error.response.data.message))
@@ -39,7 +39,7 @@ export const updateUser = (updateUser) => async(dispatch) => {
     try {
         dispatch(userActions.getUpdateUserRequest());
         await axios.patch("/api/v1/rent/user/updateMe", updateUser)
-        const { data } = await axios.get("/api/v1/rent/user/me")
+        const { data } = await axios.get("/api/v1/rent/user/me", user)
         dispatch(userActions.getCurrentUser(data.user))
     } catch (error) {
         dispatch(userActions.getError(error.response.data.message))

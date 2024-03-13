@@ -10,14 +10,10 @@
   border-radius: 50%;
   background-color: white;
 }
-.userinfo {
-  margin-left: 6rem;
-}
 
 .user-info h4,
 h2 {
   font-weight: 800;
-  margin-top: 2rem;
   text-shadow: 2px 2px white;
   letter-spacing: 2px;
 }
@@ -26,7 +22,7 @@ h2 {
   font-size: 1.1rem;
 }
 
-.btn {
+/* .btn {
   background-color: #0e8b53;
   border-color: #0e8b53;
   color: white;
@@ -35,16 +31,12 @@ h2 {
   border-color: #8b8683;
   width: 16rem;
 }
-
-.buttons {
-  display: flex;
-}
 .btn:hover {
   background-color: rgba(177, 221, 184, 0.63);
   border-color: rgb(2, 58, 11);
   color: rgb(2, 58, 11);
   font-weight: bold;
-}
+} */
 
 .update-btn {
   background-color: #0e8b53;

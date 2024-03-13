@@ -1,7 +1,7 @@
 import React from "react";
 import ProgressSteps from "../ProgressSteps";
 import { Link } from "react-router-dom";
-import "../../CSS/Profile.css";
+// import "../../CSS/Profile.css";
 import { useSelector } from "react-redux";
 import LoadingSpinner from "../LoadingSpinner";
 
@@ -21,7 +21,7 @@ const Profile = () => {
               </div>
               <h3>Welcome User</h3>
             </div>
-            <div className="userinfo">
+            <div className="user-info" style={{marginLeft: '100px'}}>
               <h4>Full name</h4>
               <p>{user.name}</p>
 
@@ -31,9 +31,9 @@ const Profile = () => {
               <h4>Phone Number</h4>
               <p>{user.phoneNumber}</p>
 
-              <div className="buttons">
-                <Link to="/editprofile" id="edit_profile" className="btn btn-block my-5"> Edit Profile </Link>
-                <Link to="/user/updatepassword" className="btn btn-block my-5 mx-4"> Change Password </Link>
+              <div className="d-flex">
+                <Link to="/editprofile" id="edit_profile" className="btn btn-danger btn-block my-5 rounded rounded-pill"> Edit Profile </Link>
+                <Link to="/user/updatepassword" className="btn btn-outline-danger btn-block my-5 mx-4 rounded rounded-pill"> Change Password </Link>
               </div>
             </div>
           </div>
