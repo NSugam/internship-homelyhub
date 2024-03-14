@@ -14,6 +14,8 @@ import { useEffect } from 'react';
 import './App.css';
 import EditProfile from "./Components/User/EditProfile";
 import UpdatePassword from "./Components/User/UpdatePassword";
+import ForgotPassword from "./Components/User/ForgotPassword";
+import ResetPassword from "./Components/User/ResetPassword";
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
         <Route id='profile' path="profile"  element={<Profile />} exact />
         <Route id='editprofile' path="editprofile"  element={<EditProfile />} exact />
         <Route id='updatepassword' path="user/updatepassword"  element={<UpdatePassword />} exact />
+        <Route id='forgotpassword' path="user/forgotPassword"  element={<ForgotPassword />} exact />
+        <Route id='resetpassword' path="user/resetPassword/:token"  element={<ResetPassword />} exact />
       </Route>
     )
   );
