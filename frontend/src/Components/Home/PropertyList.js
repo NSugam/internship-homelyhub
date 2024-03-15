@@ -51,17 +51,23 @@ const PropertyList = () => {
         <p className="not_found fs-1 text-danger">"Property not found"</p>
       ) : (
         <div className="container-fluid row m-auto bg-dark">
+              <p>
+                {/* <img align="center" src="https://github-readme-stats.vercel.app/api?username=nsugam&show_icons=true&locale=en" alt="nsugam" /> */}
+                <img align="center" src="https://github-readme-stats.vercel.app/api?username=nsugam&show_icons=true&theme=radical" alt="nsugam" />
+              </p>
           {properties.map((property) => (
-            <div className="col col-sm-3 col-12 mt-3">
-              <Card
-                key={property._id}
-                id={property._id}
-                image={property.images[0].url}
-                name={property.propertyName}
-                address={`${property.address.city}, ${property.address.state}, ${property.address.pincode}`}
-                price={property.price}
-              />
-            </div>
+            <>
+              <div className="col col-sm-3 col-12 mt-3">
+                <Card
+                  key={property._id}
+                  id={property._id}
+                  image={property.images[0].url}
+                  name={property.propertyName}
+                  address={`${property.address.city}, ${property.address.state}, ${property.address.pincode}`}
+                  price={property.price}
+                />
+              </div>
+            </>
           ))}
         </div>
       )}
@@ -74,7 +80,7 @@ const PropertyList = () => {
           <span className="material-symbols-outlined">arrow_back_ios_new</span>
         </button>
         <p className="text-light">Page: {currentPage.page}</p>
-        
+
         <button className="next_btn"
           onClick={() => setCurrentPage((prev) => ({ page: prev.page + 1 }))}
           disabled={properties.length < 12 || currentPage.page === lastPage}>
