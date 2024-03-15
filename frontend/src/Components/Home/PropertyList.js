@@ -51,10 +51,9 @@ const PropertyList = () => {
         <p className="not_found fs-1 text-danger">"Property not found"</p>
       ) : (
         <div className="container-fluid row m-auto bg-dark">
-              <p>
-                {/* <img align="center" src="https://github-readme-stats.vercel.app/api?username=nsugam&show_icons=true&locale=en" alt="nsugam" /> */}
-                <img align="center" src="https://github-readme-stats.vercel.app/api?username=nsugam&show_icons=true&theme=radical" alt="nsugam" />
-              </p>
+          <p>
+
+          </p>
           {properties.map((property) => (
             <>
               <div className="col col-sm-3 col-12 mt-3">

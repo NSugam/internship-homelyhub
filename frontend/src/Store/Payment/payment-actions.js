@@ -1,5 +1,5 @@
 import { setPaymentDetails } from "./payment-slice";
-import { cardNumberElement } from '@stripe/react-stripe-js'
+import { CardNumberElement } from '@stripe/react-stripe-js'
 import axios from "axios";
 
 export const processPayment =({
@@ -12,6 +12,7 @@ export const processPayment =({
     address,
     maximumGuest,
     bookingId,
+    propertyId,
     nights,
     dispatch,
     navigate
@@ -22,6 +23,50 @@ export const processPayment =({
         if(!stripe || !elements) {
             console.error("Stripe is not initialized")
             return;
+        }
+        const cardNumberElement = elements.getElement(CardNumberElement)
+        try {
+            const response = await axios.post("/api/v1/rent/user/checkout-session",
+            {
+                amount: totalAmount,
+                currency: 'inr',
+                PaymentMethodTypes:['card'],
+                checkinDate,
+                checkoutDate,
+                propertyName,
+                address,
+                maximumGuest,
+                bookingId,
+                propertyId,
+                nights
+
+            }, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+            );
+            const data = response.data;
+            await stripe.confirmCardPayment(data.clientSecret, {
+                payment_method: {
+                    card: cardNumberElement
+                }
+            });
+            dispatch(
+                setPaymentDetails({
+                    checkinDate,
+                    checkoutDate,
+                    totalPrice: totalAmount,
+                    propertyName,
+                    address,
+                    maximumGuest,
+                    nights
+
+                })
+            );
+            navigate('/user/booking')
+        } catch (error) {
+            console.error("Error processing payment:", error)
         }
     }
 }

@@ -3,6 +3,7 @@ import moment from "moment";
 import { DatePicker, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { selectPaymentDetails, setPaymentDetails } from "../../Store/Payment/payment-slice";
 
 const BookingForm = ({ price, propertyName, address, maximumGuest, propertyId, currentBookings }) => {
   const [paymentData, setPaymentData] = useState({});
@@ -49,9 +50,33 @@ const BookingForm = ({ price, propertyName, address, maximumGuest, propertyId, c
     }));
   };
 
+  const handleBookPlace =(e)=> {
+    e.preventDefault();
+    if (
+      userData?.name &&
+      userData?.guests &&
+      userData?.phoneNo &&
+      userData?.checkinDate &&
+      userData?.checkoutDate
+    ) {
+      dispatch (
+        setPaymentDetails({
+          ...paymentData,
+          propertyName,
+          address,
+          maximumGuest
+        })
+      )
+      navigate(`/payment/${propertyId}`)
+    } else {
+
+    }
+
+  }
+
   return (
     <div className="form-container">
-      <form className="payment-form">
+      <form className="payment-form" onSubmit={handleBookPlace}>
         <div className="price-pernight">
           <b>₹{price}</b>
           <span> / per night</span>
@@ -109,7 +134,7 @@ const BookingForm = ({ price, propertyName, address, maximumGuest, propertyId, c
           </div>
         </div>
         <div className="book-place text-center">
-          <button className="btn btn-danger">Book this place &#8377; {paymentData["totalPrice"] || 0}</button>
+          <button className="btn btn-danger" type="submit">Book this place &#8377; {paymentData["totalPrice"] || 0}</button>
         </div>
       </form>
     </div>
