@@ -56,8 +56,8 @@ const BookingForm = ({ price, propertyName, address, maximumGuest, propertyId, c
       userData?.name &&
       userData?.guests &&
       userData?.phoneNo &&
-      userData?.checkinDate &&
-      userData?.checkoutDate
+      paymentData?.checkinDate &&
+      paymentData?.checkoutDate
     ) {
       dispatch (
         setPaymentDetails({
