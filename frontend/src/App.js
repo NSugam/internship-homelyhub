@@ -19,11 +19,11 @@ import ResetPassword from "./Components/User/ResetPassword";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js'
 import Payment from "./Components/Payment/Payment";
-
+import MyBookings from "./Components/Mybookings/MyBookings";
+import BookingDetails from "./Components/Mybookings/BookingDetails";
 
 function App() {
   const stripePromise = loadStripe
-  ('')
 
   const dispatch = useDispatch()
   const { errors } = useSelector((state) => state.user)
@@ -50,7 +50,10 @@ function App() {
           <Elements stripe={stripePromise}>
             <Payment />
           </Elements>} exact />
+          <Route id='mybookings' path="user/booking" element={<MyBookings />} exact />
+          <Route id='bookingdetails' path="user/booking/:bookingId" element={<BookingDetails />} exact />
       </Route>
+
     )
   );
   return (

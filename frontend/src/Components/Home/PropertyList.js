@@ -16,7 +16,7 @@ const Card = ({ id, image, address, price, name }) => {
         <main className="propertydetails">
           <h5>{name}</h5>
           <h6>
-            <span className="material-symbols-outlined houseicon">home_pin</span>{" "}
+            <span className="material-symbols-outlined houseicon">home_pin</span>
             {address}
           </h6>
           <p>
