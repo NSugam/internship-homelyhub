@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchuserBookings, fetchBookingDetails } from "../../Store/Booking/booking-action";
 import LoadingSpinner from "../LoadingSpinner";
 
-
 const MyBookings = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -15,11 +14,11 @@ const MyBookings = () => {
     dispatch(fetchuserBookings())
   },[dispatch])
 
-  const handleBookingClick = (bookingId) = {
-    dispatch(fetchBookingDetails(bookingId));
+  const handleBookingClick = (bookingId) => {
+    dispatch(fetchBookingDetails(bookingId))
     navigate(`/user/booking/${bookingId}`)
   }
-  if(bookings.length)
+
   return (
     <>
       <ProgressSteps />

@@ -23,7 +23,7 @@ import MyBookings from "./Components/Mybookings/MyBookings";
 import BookingDetails from "./Components/Mybookings/BookingDetails";
 
 function App() {
-  const stripePromise = loadStripe
+  const stripePromise = loadStripe()
 
   const dispatch = useDispatch()
   const { errors } = useSelector((state) => state.user)
