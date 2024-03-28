@@ -21,9 +21,11 @@ import { loadStripe } from '@stripe/stripe-js'
 import Payment from "./Components/Payment/Payment";
 import MyBookings from "./Components/Mybookings/MyBookings";
 import BookingDetails from "./Components/Mybookings/BookingDetails";
+import AccomodationForm from "./Components/Accomodation/AccomodationForm";
+import Accomodation from "./Components/Accomodation/Accomodation";
 
 function App() {
-  const stripePromise = loadStripe()
+  const stripePromise = loadStripe('pk_test_51Os5PkSEUdUQaxSeJcmwYraTBpkJqG5iBulyGo3PFLqEC8mFpFUSt7fgmCRVSZYGT41maiHZPQ8VQwu2qkNuLjR700EZEcO1hs')
 
   const dispatch = useDispatch()
   const { errors } = useSelector((state) => state.user)
@@ -52,6 +54,9 @@ function App() {
           </Elements>} exact />
           <Route id='mybookings' path="user/booking" element={<MyBookings />} exact />
           <Route id='bookingdetails' path="user/booking/:bookingId" element={<BookingDetails />} exact />
+          <Route id="accomodation" path="accommodation" element={<Accomodation />} />
+          <Route id="accomodationform" path="accomodationform" element={<AccomodationForm />} />
+
       </Route>
 
     )

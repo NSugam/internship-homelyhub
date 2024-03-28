@@ -1,25 +1,27 @@
 import axios from "axios";
+
 import { propertyAction } from "./property-slice";
 
-//action creater to fetch properties
-export const getAllProperties = ()=> async (dispatch, getState)=> {
-    try {
-        dispatch(propertyAction.getRequest())
+//action creator to fetch properties
 
-        const {searchParams} = getState().properties
+export const getAllProperties= () => async(dispatch,getState)=>{
+    try{
+        dispatch(propertyAction.getRequest());
 
-        const reponse = await axios.get(`/api/v1/rent/listing`, {
-            params: { ...searchParams },
+        const {searchParams}=getState().properties;
+        const response=await axios.get(`/api/v1/rent/listing`,{
+            params:{ ...searchParams },
         });
 
-        if(!reponse){
-            throw new Error("Couldn't fetch any properties")
+        console.log(response);
+
+        if(!response){
+            throw new Error("Could not fetch any properties")
         }
+        const {data} = response;
+        dispatch(propertyAction.getProperties(data));
 
-        const { data } = reponse;
-        dispatch(propertyAction.getProperties(data))
-
-    } catch (error) {
-        dispatch(propertyAction.getError(error.message));
+    }catch(error){
+        dispatch(propertyAction.getErrors(error.message));
     }
-}
+};
